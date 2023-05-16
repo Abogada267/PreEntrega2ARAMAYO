@@ -1,0 +1,38 @@
+body {
+    background-color: #f5f8fa;
+    color: #37474f;
+    font-family: sans-serif;
+}
+
+header {
+    background-color: #2196f3;
+    color: white;
+    padding: 1em;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1em;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+label {
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="date"] {
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
