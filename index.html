@@ -14,6 +14,47 @@
     <header>
         <h1>Turnos Estudio de Abogados</h1>
     </header>
+    <form id="ingreso">
+        <p> PRESUPUESTO</p>
+        <p>
+            <select id="tipoConsulta">
+                <option value="2750">CONSULTA POR WASSAP</option>
+                <option value="5500">CONSULTA TELEFONICA</option>
+                <option value="27500">CONSULTA PRESENCIAL</option>
+            </select>
+        </p>
+        <p> INTERVENCION</p>
+        <p>
+            <select id="intervencion">
+                <option value="0">SIN INTERVENCION EN EXPEDIENTE</option>
+                <option value="5500">CON INTERVENCION EN EXPEDIENTE</option>
+                <option value="5500">CON ANALISIS DE DOCUMENTOS</option>
+            </select>
+        </p>
+        <p>ANALISIS</p>
+        <p>
+            <select id="analisis">
+                <option value="0">POSIBLE SOLUCION AL CONFLICTO</option>
+                <option value="5500">PRESENTACION EN AUDIENCIA JUDICIAL</option>
+                <option value="12500">CONTESTACION DE DEMANDA</option>
+            </select>
+        </p>
+        <p>
+            <input type="button" value="Calcular Presupuesto" onClick="calcularPresupuesto()">
+        </p>
+        <p>
+            <input type="text" id="resultado">
+        </p>
+        <p id="cuotas" style="display: none;">
+            <label for="selectCuotas">Seleccione la cantidad de cuotas:</label>
+            <select id="selectCuotas">
+                <option value="5">5 cuotas</option>
+                <option value="10">10 cuotas</option>
+            </select>
+            <button onclick="calcularCuotas()">Calcular Cuotas</button>
+        </p>
+    </form>
+    <script src="app.js"></script>
     <main>
         <div id="ingreso" style="display: none;">
             <!-- Aquí puedes agregar el contenido que deseas mostrar cuando el usuario acepta ingresar -->
@@ -24,6 +65,47 @@
     <footer>
         <p>&copy; 2023 Estudio de Abogados</p>
     </footer>
+    <script>
+        function ingreso() {
+            const edad = prompt("Ingresa tu edad:");
+
+            if (edad >= 18) {
+                let main = document.getElementById('ingreso');
+                if (confirm('Hola, estás por ingresar a la página de la Dra. Aramayo sobre presupuestos. Si deseas ver los servicios que ofrece, haz clic en "Aceptar"; en caso contrario, haz clic en "Cancelar".')) {
+                    alert("Clickeaste Aceptar. Se mostrará la página.");
+                    main.style.display = 'block';
+                } else {
+                    alert("Hiciste clic en Cancelar. ¡Qué pena, te lo pierdes!");
+                    main.style.display = 'none';
+                }
+            }
+        }
+
+        function calcularPresupuesto() {
+            let ele1 = document.getElementById('tipoConsulta');
+            let precio1 = parseInt(ele1.value);
+
+            let ele2 = document.getElementById('intervencion');
+            let precio2 = parseInt(ele2.value);
+
+            let ele3 = document.getElementById('analisis');
+            let precio3 = parseInt(ele3.value);
+
+            let total = precio1 + precio2 + precio3;
+
+            document.getElementById('resultado').value = total;
+
+            document.getElementById('cuotas').style.display = 'block';
+        }
+
+        function calcularCuotas() {
+            let cuotas = document.getElementById('selectCuotas').value;
+            let total = parseInt(document.getElementById('resultado').value);
+            let cuotaMensual = total / cuotas;
+
+            alert("El total se dividirá en " + cuotas + " cuotas mensuales de " + cuotaMensual + " cada una.");
+        }
+    </script>
 </body>
 
 </html>
