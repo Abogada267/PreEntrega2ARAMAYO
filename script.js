@@ -1,3 +1,7 @@
+window.onload = function () {
+    ingreso();
+};
+
 function ingreso() {
     const edad = prompt("Ingresa tu edad:");
 
@@ -99,9 +103,7 @@ window.location.href = url; function ingreso() {
     }
 }
 
-window.onload = function () {
-    ingreso();
-};
+
 
 
 
